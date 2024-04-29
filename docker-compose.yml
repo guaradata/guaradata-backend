@@ -1,0 +1,69 @@
+# Docker Compose Configuration
+# visit https://docs.docker.com/compose/
+
+version: "3.8"
+services:
+  nginx-guaradata:
+    container_name: nginx-guaradata
+    image: nginx:latest
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/config/nginx:/etc/nginx
+      - ./nginx/share/index.html:/usr/share/nginx/html/index.html
+    restart: on-failure:5
+    networks:
+      guaradata-network:
+        ipv4_address: 172.168.0.2
+  nestjs-guaradata:
+    container_name: nestjs-guaradata
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file: .env
+    depends_on:
+      - mongodb-guaradata
+    networks:
+      guaradata-network:
+        ipv4_address: 172.168.0.3
+
+  # start the mongodb service as container
+  mongodb-guaradata:
+    image: mongo:7.0
+    container_name: mongodb-guaradata
+    restart: always
+    volumes:
+      - ./db:/data/db
+    env_file: .env
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${DATABASE_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${DATABASE_PASS}
+    networks:
+      guaradata-network:
+        ipv4_address: 172.168.0.4
+  mongo-express:
+    image: mongo-express
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=${ME_CONFIG_MONGODB_ADMINUSERNAME}
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=${ME_CONFIG_MONGODB_ADMINPASSWORD}
+      - ME_CONFIG_MONGODB_URL=${DATABASE_URI}
+      - ME_CONFIG_BASICAUTH=${ME_CONFIG_BASICAUTH}
+      - ME_CONFIG_BASICAUTH_USERNAME=${ME_CONFIG_BASICAUTH_USERNAME}
+      - ME_CONFIG_BASICAUTH_PASSWORD=${ME_CONFIG_BASICAUTH_PASSWORD}
+      - ME_CONFIG_MONGODB_PORT=${ME_CONFIG_MONGODB_PORT}
+    ports:
+      - 8081:8081
+    depends_on:
+      - mongodb-guaradata
+    networks:
+      guaradata-network:
+        ipv4_address: 172.168.0.5
+
+networks:
+  guaradata-network:
+    ipam:
+      config:
+        - subnet: 172.168.0.0/16
