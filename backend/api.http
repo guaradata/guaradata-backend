@@ -1,9 +1,27 @@
-GET http://localhost:3000/posts
+GET http://localhost:3000/blogcontents
+
 ###
-GET http://localhost:3000/posts/1
+GET http://localhost:3000/blogcontents/1
+
 ###
-POST  http://localhost:3000/posts
+POST  http://localhost:3000/blogcontents
+Content-Type: application/json
+
+{
+    "title": "foi!",
+    "author": "Ivan",
+    "content": "Teste1",
+    "publicationDate": "2024-05-05",
+    "updatedAt": "2024-05-05",
+    "category": "Teste",
+    "keywords": ["Ivan"],
+    "coverImage": "https://teste.jpeg",
+    "tags": ["Ivan"],
+    "language": "ptbr"
+}
+
 ###
-PATCH   http://localhost:3000/posts/1
+PATCH   http://localhost:3000/blogcontents/1
+
 ###
-DELETE    http://localhost:3000/posts/1
+DELETE    http://localhost:3000/blogcontents/1
