@@ -34,15 +34,15 @@ export class BlogcontentsController {
   }
 
   @Patch(':id')
-  update(
+  async update(
     @Param('id') id: string,
     @Body() updateBlogcontentDto: UpdateBlogcontentDto,
   ) {
-    return this.blogcontentsService.update(+id, updateBlogcontentDto);
+    return await this.blogcontentsService.update(id, updateBlogcontentDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.blogcontentsService.removeById(id);
+  async remove(@Param('id') id: string) {
+    return await this.blogcontentsService.removeById(id);
   }
 }

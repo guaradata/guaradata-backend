@@ -24,7 +24,7 @@ export class BlogcontentsService {
     return allBlogContents;
   }
 
-  async findOne(id: string) {
+  async findOne(id: string): Promise<Blogcontent> {
     try {
       const blogContent =
         await this.blogcontentRepository.findOneBlogContent(id);
@@ -35,11 +35,26 @@ export class BlogcontentsService {
     }
   }
 
-  update(id: number, updateBlogcontentDto: UpdateBlogcontentDto) {
-    return `This action updates a #${id} blogcontent`;
+  async update(
+    id: string,
+    updateBlogcontentDto: UpdateBlogcontentDto,
+  ): Promise<Blogcontent> {
+    try {
+      const blogContent =
+        await this.blogcontentRepository.findOneBlogContent(id);
+      if (!blogContent) throw new BadRequestException('There are no results');
+      const blogContentUpdated =
+        await this.blogcontentRepository.updateBlogContentById(
+          id,
+          updateBlogcontentDto,
+        );
+      return blogContentUpdated;
+    } catch (error) {
+      throw new BadRequestException('There are no results');
+    }
   }
 
-  async removeById(id: string) {
+  async removeById(id: string): Promise<Blogcontent> {
     try {
       return await this.blogcontentRepository.deleteBlogContentById(id);
     } catch (error) {
