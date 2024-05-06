@@ -29,8 +29,8 @@ export class BlogcontentsController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.blogcontentsService.findOne(+id);
+  async findOne(@Param('id') id: string): Promise<Blogcontent> {
+    return await this.blogcontentsService.findOne(id);
   }
 
   @Patch(':id')
@@ -43,6 +43,6 @@ export class BlogcontentsController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.blogcontentsService.remove(+id);
+    return this.blogcontentsService.removeById(id);
   }
 }

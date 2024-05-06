@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateBlogcontentDto } from './dto/create-blogcontent.dto';
 import { UpdateBlogcontentDto } from './dto/update-blogcontent.dto';
 import { BlogcontentRepository } from './repository/blogcontents.repository';
@@ -16,18 +16,34 @@ export class BlogcontentsService {
   }
 
   async findAll(): Promise<Blogcontent[]> {
-    return await this.blogcontentRepository.findAllBlogContents();
+    const allBlogContents =
+      await this.blogcontentRepository.findAllBlogContents();
+    if (!allBlogContents.length) {
+      throw new BadRequestException('There is no blog content available');
+    }
+    return allBlogContents;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} blogcontent`;
+  async findOne(id: string) {
+    try {
+      const blogContent =
+        await this.blogcontentRepository.findOneBlogContent(id);
+      if (!blogContent) throw new BadRequestException('There are no results');
+      return blogContent;
+    } catch (error) {
+      throw new BadRequestException('There are no results');
+    }
   }
 
   update(id: number, updateBlogcontentDto: UpdateBlogcontentDto) {
     return `This action updates a #${id} blogcontent`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} blogcontent`;
+  async removeById(id: string) {
+    try {
+      return await this.blogcontentRepository.deleteBlogContentById(id);
+    } catch (error) {
+      throw new BadRequestException('This Blog Content does not exists');
+    }
   }
 }

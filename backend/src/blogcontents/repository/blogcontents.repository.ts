@@ -25,4 +25,18 @@ export class BlogcontentRepository {
       .sort({ title: +1 })
       .exec();
   }
+
+  async findOneBlogContent(idContent: string): Promise<Blogcontent> {
+    return await this.blogContentModel.findOne(
+      { _id: idContent },
+      { __v: false },
+    );
+  }
+
+  async deleteBlogContentById(idContent: string): Promise<Blogcontent> {
+    return await this.blogContentModel.findOneAndDelete(
+      { _id: idContent },
+      { __v: false },
+    );
+  }
 }

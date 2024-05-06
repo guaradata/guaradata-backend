@@ -1,16 +1,16 @@
 GET http://localhost:3000/blogcontents
 
 ###
-GET http://localhost:3000/blogcontents/1
+GET http://localhost:3000/blogcontents/6638506c6d20396ec3b424ce
 
 ###
 POST  http://localhost:3000/blogcontents
 Content-Type: application/json
 
 {
-    "title": "foi!",
+    "title": "aaaaaaa",
     "author": "Ivan",
-    "content": "Applications often run in different environments. Depending on the environment, different configuration settings should be used. For example, usually the local environment relies on specific database credentials, valid only for the local DB instance. The production environment would use a separate set of DB credentials. Since configuration variables change, best practice is to store configuration variables in the environment.",
+    "content": "aaaaaaa",
     "publicationDate": "2024-05-05",
     "updatedAt": "2024-05-05",
     "category": "Teste",
@@ -24,4 +24,4 @@ Content-Type: application/json
 PATCH   http://localhost:3000/blogcontents/1
 
 ###
-DELETE    http://localhost:3000/blogcontents/1
+DELETE    http://localhost:3000/blogcontents/6638506c6d20396ec3b424ce
