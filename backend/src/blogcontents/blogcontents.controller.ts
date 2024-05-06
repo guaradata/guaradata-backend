@@ -10,21 +10,22 @@ import {
 import { BlogcontentsService } from './blogcontents.service';
 import { CreateBlogcontentDto } from './dto/create-blogcontent.dto';
 import { UpdateBlogcontentDto } from './dto/update-blogcontent.dto';
+import { Blogcontent } from './entities/blogcontent.entity';
 
 @Controller('blogcontents')
 export class BlogcontentsController {
   constructor(private readonly blogcontentsService: BlogcontentsService) {}
 
   @Post()
-  create(
+  async create(
     @Body() createBlogcontentDto: CreateBlogcontentDto,
-  ): CreateBlogcontentDto {
-    return this.blogcontentsService.create(createBlogcontentDto);
+  ): Promise<Blogcontent> {
+    return await this.blogcontentsService.create(createBlogcontentDto);
   }
 
   @Get()
-  findAll() {
-    return this.blogcontentsService.findAll();
+  async findAll(): Promise<Blogcontent[]> {
+    return await this.blogcontentsService.findAll();
   }
 
   @Get(':id')

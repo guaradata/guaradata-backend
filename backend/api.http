@@ -10,7 +10,7 @@ Content-Type: application/json
 {
     "title": "foi!",
     "author": "Ivan",
-    "content": "Teste1",
+    "content": "Applications often run in different environments. Depending on the environment, different configuration settings should be used. For example, usually the local environment relies on specific database credentials, valid only for the local DB instance. The production environment would use a separate set of DB credentials. Since configuration variables change, best practice is to store configuration variables in the environment.",
     "publicationDate": "2024-05-05",
     "updatedAt": "2024-05-05",
     "category": "Teste",

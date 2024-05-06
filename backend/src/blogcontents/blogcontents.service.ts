@@ -1,15 +1,22 @@
 import { Injectable } from '@nestjs/common';
 import { CreateBlogcontentDto } from './dto/create-blogcontent.dto';
 import { UpdateBlogcontentDto } from './dto/update-blogcontent.dto';
+import { BlogcontentRepository } from './repository/blogcontents.repository';
+import { Blogcontent } from './interfaces/blogcontents.interface';
 
 @Injectable()
 export class BlogcontentsService {
-  create(createBlogcontentDto: CreateBlogcontentDto) {
-    return createBlogcontentDto;
+  constructor(private readonly blogcontentRepository: BlogcontentRepository) {}
+  async create(
+    createBlogcontentDto: CreateBlogcontentDto,
+  ): Promise<Blogcontent> {
+    return await this.blogcontentRepository.createBlogContent(
+      createBlogcontentDto,
+    );
   }
 
-  findAll() {
-    return `This action returns all blogcontents`;
+  async findAll(): Promise<Blogcontent[]> {
+    return await this.blogcontentRepository.findAllBlogContents();
   }
 
   findOne(id: number) {

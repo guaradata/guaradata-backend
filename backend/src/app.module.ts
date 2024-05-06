@@ -8,7 +8,7 @@ import { BlogcontentsModule } from './blogcontents/blogcontents.module';
     ConfigModule.forRoot(),
     BlogcontentsModule,
     // MongooseModule.forRoot(process.env.DATABASE_URI),
-    MongooseModule.forRoot('mongodb://guaradata-admin:123456@localhost:27017/'),
+    MongooseModule.forRoot('mongodb://guaradata-admin:123456@localhost:27017'),
   ],
   controllers: [],
   providers: [],
