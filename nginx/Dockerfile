@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM nginx:alpine-slim
 
 EXPOSE 8080
 

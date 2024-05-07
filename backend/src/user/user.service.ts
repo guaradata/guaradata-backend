@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
 import { PrismaService } from '../prisma/prisma.service';
@@ -15,12 +15,17 @@ export class UserService {
       password: await bcrypt.hash(createUserDto.password, 10),
     };
 
-    const createdUser = await this.prisma.user.create({ data });
-
-    return {
-      ...createdUser,
-      password: undefined,
-    };
+    try {
+      const createdUser = await this.prisma.user.create({ data });
+      return {
+        ...createdUser,
+        password: undefined,
+      };
+    } catch (error) {
+      if (error.message.includes('Unique constraint failed on the fields')) {
+        throw new BadRequestException('You cannot use this e-mail');
+      }
+    }
   }
 
   findByEmail(email: string) {

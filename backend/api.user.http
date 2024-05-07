@@ -3,7 +3,11 @@ POST http://localhost:3000/user
 Content-Type: application/json
 
 {
-    "email": "paulo@salvatore.tech",
+    "email": "paulse@salvatore.tech",
     "password": "Abc@123",
     "name": "Paulo Salvatore"
 }
+
+npx nest g module auth
+npx nest g controller auth
+npx nest g service auth

@@ -5,7 +5,6 @@ version: "3.8"
 services:
   nginx-guaradata:
     container_name: nginx-guaradata
-    image: nginx:latest
     build:
       context: ./nginx
       dockerfile: Dockerfile
@@ -30,21 +29,37 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=${DATABASE_USER}
       - MONGO_INITDB_ROOT_PASSWORD=${DATABASE_PASS}
     ports:
-      - 27017:27017
+      - 27017:27017 #Dev env
     networks:
       guaradata-network:
         ipv4_address: 172.168.0.3
+  postgres-guaradata:
+    image: postgres:16.2-alpine
+    container_name: postgres-guaradata
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - ./sqldb/postgres:/var/lib/postgresql/data
+    ports:
+      - 5432:5432 #Dev env
+    restart: always
+    networks:
+      guaradata-network:
+        ipv4_address: 172.168.0.4
   nestjs-guaradata:
     container_name: nestjs-guaradata
     build:
       context: ./backend
       dockerfile: Dockerfile
     env_file: .env
+    restart: always
     depends_on:
       - mongodb-guaradata
     networks:
       guaradata-network:
-        ipv4_address: 172.168.0.4
+        ipv4_address: 172.168.0.5
   mongo-express:
     image: mongo-express
     environment:
@@ -58,13 +73,15 @@ services:
     ports:
       - 8081:8081
     depends_on:
+      - nginx-guaradata
       - mongodb-guaradata
+      - postgres-guaradata
     networks:
       guaradata-network:
-        ipv4_address: 172.168.0.5
+        ipv4_address: 172.168.0.6
 
 networks:
   guaradata-network:
     ipam:
       config:
-        - subnet: 172.168.0.0/16
+        - subnet: 172.168.0.0/28

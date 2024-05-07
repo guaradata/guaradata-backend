@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { BlogcontentsModule } from './blogcontents/blogcontents.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { UserModule } from './user/user.module';
     MongooseModule.forRoot('mongodb://guaradata-admin:123456@localhost:27017'),
     PrismaModule,
     UserModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
