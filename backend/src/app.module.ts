@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { BlogcontentsModule } from './blogcontents/blogcontents.module';
+import { PrismaModule } from './prisma/prisma.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -9,6 +11,8 @@ import { BlogcontentsModule } from './blogcontents/blogcontents.module';
     BlogcontentsModule,
     // MongooseModule.forRoot(process.env.DATABASE_URI),
     MongooseModule.forRoot('mongodb://guaradata-admin:123456@localhost:27017'),
+    PrismaModule,
+    UserModule,
   ],
   controllers: [],
   providers: [],

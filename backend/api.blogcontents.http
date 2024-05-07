@@ -1,16 +1,17 @@
-GET http://localhost:3000/blogcontents
+GET http://localhost/api/blogcontents
 
 ###
-GET http://localhost:3000/blogcontents/663911c10ea6429635c46353
+GET http://localhost/api/blogcontents/663aa0e5d3d0a9ac4e391e9b
+
 
 ###
-POST  http://localhost:3000/blogcontents
+POST  http://localhost/api/blogcontents
 Content-Type: application/json
 
 {
     "title": "Atualizar",
     "author": "Ivan",
-    "content": "Atualize",
+    "content": "Add with NGINX - Delete",
     "publicationDate": "2024-05-05",
     "updatedAt": "2024-05-05",
     "category": "Teste",
@@ -21,7 +22,7 @@ Content-Type: application/json
 }
 
 ###
-PATCH   http://localhost:3000/blogcontents/663911c10ea6429635c46353
+PATCH   http://localhost/api/blogcontents/663911c10ea6429635c46353
 Content-Type: application/json
 
 {
@@ -38,4 +39,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE    http://localhost:3000/blogcontents/6638506c6d20396ec3b424ce
+DELETE    http://localhost/api/blogcontents/663aa0e5d3d0a9ac4e391e9b
