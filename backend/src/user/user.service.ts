@@ -23,7 +23,7 @@ export class UserService {
       };
     } catch (error) {
       if (error.message.includes('Unique constraint failed on the fields')) {
-        throw new BadRequestException('You cannot use this e-mail');
+        throw new BadRequestException('Unable to create account');
       }
     }
   }

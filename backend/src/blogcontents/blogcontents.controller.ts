@@ -1,11 +1,11 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  Patch,
-  Param,
+  Controller,
   Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
 } from '@nestjs/common';
 import { BlogcontentsService } from './blogcontents.service';
 import { CreateBlogcontentDto } from './dto/create-blogcontent.dto';

@@ -3,11 +3,12 @@ POST http://localhost:3000/user
 Content-Type: application/json
 
 {
-    "email": "paulse@salvatore.tech",
-    "password": "Abc@123",
-    "name": "Paulo Salvatore"
+    "email": "ivans@ivan.tech",
+    "password": "123!@#123ABCabc",
+    "name": "Ivan Pinheiro"
 }
 
-npx nest g module auth
-npx nest g controller auth
-npx nest g service auth
+###
+GET http://localhost:3000/user/me
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEzLCJlbWFpbCI6Iml2YW5AaXZhbi50ZWNoIiwibmFtZSI6Ikl2YW4gUGluaGVpcm8iLCJpYXQiOjE3MTUxODg4MzksImV4cCI6MTcxNzc4MDgzOX0.5d2qXzlEHcxtKmXVDLNScHo_hKaMlwUzWeSe8D6tMgc
