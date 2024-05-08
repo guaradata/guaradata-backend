@@ -1,11 +1,12 @@
-GET http://localhost/api/blogcontents
+###
+GET http://localhost:3000/blogcontents
 
 ###
-GET http://localhost/api/blogcontents/663aa0e5d3d0a9ac4e391e9b
+GET http://localhost:3000/blogcontents/663aa0e5d3d0a9ac4e391e9b
 
 
 ###
-POST  http://localhost/api/blogcontents
+POST  http://localhost:3000/blogcontents
 Content-Type: application/json
 
 {
@@ -22,7 +23,7 @@ Content-Type: application/json
 }
 
 ###
-PATCH   http://localhost/api/blogcontents/663911c10ea6429635c46353
+PATCH   http://localhost:3000/blogcontents/663911c10ea6429635c46353
 Content-Type: application/json
 
 {
@@ -39,4 +40,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE    http://localhost/api/blogcontents/663aa0e5d3d0a9ac4e391e9b
+DELETE    http://localhost:3000/blogcontents/663aa0e5d3d0a9ac4e391e9b
