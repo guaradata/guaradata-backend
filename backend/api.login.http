@@ -1,5 +1,9 @@
+//Base Docker url: http://localhost/api
+//Base local url: http://localhost:5000
+@base_url = http://localhost/api
+
 ###
-POST http://localhost:3000/login
+POST {{base_url}}/login
 Content-Type: application/json
 
 {

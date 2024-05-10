@@ -8,6 +8,11 @@ import { PrismaModule } from './prisma/prisma.module';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 
+const DATABASE_URI =
+  process.env.DEPLOY_CONFIG === 'production'
+    ? process.env.DATABASE_URI
+    : 'mongodb://guaradata-admin:123456@localhost:27017';
+
 @Module({
   providers: [
     {
@@ -17,8 +22,7 @@ import { AuthModule } from './auth/auth.module';
   ],
   imports: [
     ConfigModule.forRoot(),
-    // MongooseModule.forRoot(process.env.DATABASE_URI),
-    MongooseModule.forRoot('mongodb://guaradata-admin:123456@localhost:27017'),
+    MongooseModule.forRoot(DATABASE_URI),
     BlogcontentsModule,
     PrismaModule,
     UserModule,

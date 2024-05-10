@@ -1,5 +1,9 @@
+//Base Docker url: http://localhost/api
+//Base local url: http://localhost:5000
+@base_url = http://localhost/api
+
 ###
-POST http://localhost:3000/user
+POST {{base_url}}/user
 Content-Type: application/json
 
 {
@@ -9,6 +13,6 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/user/me
+GET {{base_url}}/user/me
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEzLCJlbWFpbCI6Iml2YW5AaXZhbi50ZWNoIiwibmFtZSI6Ikl2YW4gUGluaGVpcm8iLCJpYXQiOjE3MTUxODg4MzksImV4cCI6MTcxNzc4MDgzOX0.5d2qXzlEHcxtKmXVDLNScHo_hKaMlwUzWeSe8D6tMgc

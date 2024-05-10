@@ -1,11 +1,16 @@
-###
-GET http://localhost:5000/blogcontents
+
+//Base Docker url: http://localhost/api
+//Base local url: http://localhost:5000
+@base_url = http://localhost/api
 
 ###
-GET http://localhost:5000/blogcontents/663911c10ea6429635c46353
+GET {{base_url}}/blogcontents
 
 ###
-POST  http://localhost:5000/blogcontents
+GET {{base_url}}/blogcontents/663911c10ea6429635c46353
+
+###
+POST  {{base_url}}/blogcontents
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEzLCJlbWFpbCI6Iml2YW5AaXZhbi50ZWNoIiwibmFtZSI6Ikl2YW4gUGluaGVpcm8iLCJpYXQiOjE3MTUxODg4MzksImV4cCI6MTcxNzc4MDgzOX0.5d2qXzlEHcxtKmXVDLNScHo_hKaMlwUzWeSe8D6tMgc
 
@@ -23,7 +28,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEzLCJlbWFpb
 }
 
 ###
-PATCH   http://localhost:5000/blogcontents/663911c10ea6429635c46353
+PATCH   {{base_url}}/blogcontents/663911c10ea6429635c46353
 Content-Type: application/json
 
 {
@@ -40,4 +45,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE    http://localhost:5000/blogcontents/663aa0e5d3d0a9ac4e391e9b
+DELETE    {{base_url}}/blogcontents/663aa0e5d3d0a9ac4e391e9b
