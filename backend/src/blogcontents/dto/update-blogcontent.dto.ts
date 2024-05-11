@@ -8,6 +8,7 @@ import {
   IsDateString,
   IsArray,
   ArrayMinSize,
+  IsEmail,
 } from 'class-validator';
 
 export class UpdateBlogcontentDto extends PartialType(CreateBlogcontentDto) {
@@ -24,6 +25,16 @@ export class UpdateBlogcontentDto extends PartialType(CreateBlogcontentDto) {
   readonly author: string;
 
   @IsNotEmpty()
+  @IsEmail()
+  readonly authorEmail: string;
+
+  @IsNotEmpty()
+  @IsString()
+  @MinLength(2)
+  @MaxLength(500)
+  readonly urlTitle: string;
+
+  @IsNotEmpty()
   @IsString()
   @MinLength(2)
   readonly content: string;
@@ -31,8 +42,20 @@ export class UpdateBlogcontentDto extends PartialType(CreateBlogcontentDto) {
   @IsNotEmpty()
   @IsString()
   @MinLength(2)
+  @MaxLength(1000)
+  readonly contentSummary: string;
+
+  @IsNotEmpty()
+  @IsString()
+  @MinLength(2)
   @IsDateString()
   readonly publicationDate: Date;
+
+  @IsNotEmpty()
+  @IsString()
+  @MinLength(2)
+  @IsDateString()
+  readonly createdAt: Date;
 
   @IsNotEmpty()
   @IsString()
