@@ -1,4 +1,4 @@
-FROM node:20-slim
+FROM node:22-slim
 
 ARG _WORKDIR=/usr/src/app
 
@@ -18,4 +18,4 @@ RUN npm run build
 
 USER node
 
-CMD ["pm2-runtime", "start", "processes.json", "--only", "guaradata-backend"]
+CMD ["/wait-for-it.sh", "mongodb-guaradata:27017", "--", "/wait-for-it.sh", "postgres-guaradata:5432", "--", "pm2-runtime", "start", "processes.json", "--only", "guaradata-backend"]
