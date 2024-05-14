@@ -15,4 +15,5 @@ nosqldb
 sqldb
 .env
 .env.production
+frontend/
 # End of https://www.toptal.com/developers/gitignore/api/database

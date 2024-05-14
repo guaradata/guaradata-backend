@@ -31,6 +31,6 @@ export class AuthController {
       maxAge: 30 * 86400,
       path: '/',
     });
-    return true;
+    return { message: 'Login successful' };
   }
 }
