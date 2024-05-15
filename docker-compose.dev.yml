@@ -12,7 +12,6 @@ services:
       - ./nginx/dev/share/index.html:/usr/share/nginx/html/index.html
     restart: on-failure:5
     networks:
-      bridge:
       guaradata-network-dev:
         ipv4_address: 172.168.0.2
     extra_hosts:
@@ -32,7 +31,6 @@ services:
     ports:
       - 27017:27017
     networks:
-      bridge:
       guaradata-network-dev:
         ipv4_address: 172.168.0.3
 
@@ -49,7 +47,6 @@ services:
       - 5432:5432
     restart: always
     networks:
-      bridge:
       guaradata-network-dev:
         ipv4_address: 172.168.0.4
 
@@ -74,7 +71,6 @@ services:
       postgres-guaradata-dev:
         condition: service_started
     networks:
-      bridge:
       guaradata-network-dev:
         ipv4_address: 172.168.0.6
 
@@ -85,5 +81,3 @@ networks:
       driver: default
       config:
         - subnet: 172.168.0.0/28
-  bridge:
-    driver: bridge
