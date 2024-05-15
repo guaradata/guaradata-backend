@@ -7,7 +7,7 @@
 GET {{base_url}}/blogcontents
 
 ###
-GET {{base_url}}/blogcontents/663911c10ea6429635c46353
+GET {{base_url}}/blogcontents/6644b6c2670e9b3428979259
 
 ###
 POST  {{base_url}}/blogcontents
@@ -26,24 +26,29 @@ Cookie: jwt_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEzLCJlbWFpbCI6I
     "createdAt": "2024-05-10",
     "category": "Teste",
     "keywords": ["Ivan"],
-    "coverImage": "https://teste.jpeg",
+    "coverImage": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuxtjs/nuxtjs-original-wordmark.svg",
     "tags": ["Ivan"],
     "language": "ptbr"
 }
 
 ###
-PATCH   {{base_url}}/blogcontents/663911c10ea6429635c46353
+PATCH   {{base_url}}/blogcontents/6644b6c2670e9b3428979259
 Content-Type: application/json
+Cookie: jwt_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEzLCJlbWFpbCI6Iml2YW5AaXZhbi50ZWNoIiwibmFtZSI6Ikl2YW4gUGluaGVpcm8iLCJpYXQiOjE3MTUxODg4MzksImV4cCI6MTcxNzc4MDgzOX0.5d2qXzlEHcxtKmXVDLNScHo_hKaMlwUzWeSe8D6tMgc
 
 {
-    "title": "Atualizar",
+    "title": "Conteudo Quill",
     "author": "Ivan",
-    "content": "Atualizadocs",
+    "authorEmail": "ivan@ivan.com.br",
+    "urlTitle": "atualizar",
+    "content": "[\n {\n \"insert\": \"Este é um texto totalmente formatado pelo Quill Editor\"\n },\n {\n \"attributes\": {\n \"header\": 1\n },\n \"insert\": \"\\n\"\n },\n {\n \"insert\": \"\\n\"\n },\n {\n \"attributes\": {\n \"size\": \"large\"\n },\n \"insert\": \"Estamos criando um blog totalmente do zero! \"\n },\n {\n \"insert\": \"\\n\"\n }\n]",
+    "contentSummary": "Este é o resumo",
     "publicationDate": "2024-05-05",
     "updatedAt": "2024-05-05",
+    "createdAt": "2024-05-10",
     "category": "Teste",
     "keywords": ["Ivan"],
-    "coverImage": "https://teste.jpeg",
+    "coverImage": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuxtjs/nuxtjs-original-wordmark.svg",
     "tags": ["Ivan"],
     "language": "ptbr"
 }
