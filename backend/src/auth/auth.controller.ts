@@ -25,7 +25,7 @@ export class AuthController {
     @Response({ passthrough: true }) response: any,
   ) {
     const access_token = await this.authService.login(req.user);
-    response.cookie('access_token', access_token, {
+    response.cookie('jwt_token', access_token, {
       httpOnly: true,
       secure: true,
       maxAge: 30 * 86400,

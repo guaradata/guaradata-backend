@@ -1,7 +1,7 @@
 
 //Base Docker url: http://localhost/api
 //Base local url: http://localhost:5000
-@base_url = http://localhost:5000
+@base_url = http://localhost/api
 
 ###
 GET {{base_url}}/blogcontents
@@ -11,16 +11,16 @@ GET {{base_url}}/blogcontents/663911c10ea6429635c46353
 
 ###
 POST  {{base_url}}/blogcontents
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEzLCJlbWFpbCI6Iml2YW5AaXZhbi50ZWNoIiwibmFtZSI6Ikl2YW4gUGluaGVpcm8iLCJpYXQiOjE3MTUxODg4MzksImV4cCI6MTcxNzc4MDgzOX0.5d2qXzlEHcxtKmXVDLNScHo_hKaMlwUzWeSe8D6tMgc   
+Content-Type: application/json 
+Cookie: jwt_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEzLCJlbWFpbCI6Iml2YW5AaXZhbi50ZWNoIiwibmFtZSI6Ikl2YW4gUGluaGVpcm8iLCJpYXQiOjE3MTUxODg4MzksImV4cCI6MTcxNzc4MDgzOX0.5d2qXzlEHcxtKmXVDLNScHo_hKaMlwUzWeSe8D6tMgc
 
 {
-    "title": "Atualizar",
+    "title": "Conteudo de teste",
     "author": "Ivan",
     "authorEmail": "ivan@ivan.com.br",
     "urlTitle": "atualizar",
     "content": "<h1>Teste</h1><p><br></p><p><strong>Olá, meu nome é Ivan!</strong></p>",
-    "contentSummary": "Resumo",
+    "contentSummary": "Este é o resumo",
     "publicationDate": "2024-05-05",
     "updatedAt": "2024-05-05",
     "createdAt": "2024-05-10",
