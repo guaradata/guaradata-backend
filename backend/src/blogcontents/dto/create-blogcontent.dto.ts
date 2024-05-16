@@ -76,11 +76,6 @@ export class CreateBlogcontentDto {
   readonly coverImage: string;
 
   @IsNotEmpty()
-  @ArrayMinSize(1)
-  @IsArray()
-  readonly tags: [string];
-
-  @IsNotEmpty()
   @IsString()
   @MinLength(2)
   readonly language: string;

@@ -12,6 +12,5 @@ export const BlogContent = new Schema({
   category: String,
   keywords: [String],
   coverImage: String,
-  tags: [String],
   language: String,
 });
