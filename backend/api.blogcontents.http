@@ -27,8 +27,7 @@ Cookie: jwt_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEzLCJlbWFpbCI6I
     "category": "Teste",
     "keywords": ["Ivan"],
     "coverImage": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuxtjs/nuxtjs-original-wordmark.svg",
-    "language": "ptbr",
-    "readingTime": "1"
+    "language": "ptbr"
 }
 
 ###

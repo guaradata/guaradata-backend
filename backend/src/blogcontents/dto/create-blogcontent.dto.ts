@@ -79,9 +79,4 @@ export class CreateBlogcontentDto {
   @IsString()
   @MinLength(2)
   readonly language: string;
-
-  @IsNotEmpty()
-  @IsString()
-  @MinLength(1)
-  readonly readingTime: string;
 }
