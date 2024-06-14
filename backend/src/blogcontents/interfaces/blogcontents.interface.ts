@@ -16,4 +16,5 @@ export interface Blogcontent extends Document {
   readonly keywords: [string];
   readonly coverImage: string;
   readonly language: string;
+  readonly readingTime: string;
 }
